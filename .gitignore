@@ -8,3 +8,4 @@ venv
 .eggs
 discotool/_version.py
 dist
+.aider*

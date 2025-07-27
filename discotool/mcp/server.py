@@ -19,8 +19,8 @@ server = Server("discotool")
 register_tools(server)
 
 async def timeout_shutdown():
-    """Wait 15 seconds then exit the program."""
-    await asyncio.sleep(15)
+    """Wait 5 seconds then exit the program."""
+    await asyncio.sleep(5)
     print("Timeout reached, shutting down server...")
     print("Press ENTER to exit.")
     exit(0)

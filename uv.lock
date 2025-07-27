@@ -1,10 +1,6 @@
 version = 1
 revision = 2
 requires-python = ">=3.11"
-resolution-markers = [
-    "sys_platform == 'Windows'",
-    "sys_platform != 'Windows'",
-]
 
 [[package]]
 name = "annotated-types"
@@ -118,9 +114,9 @@ dependencies = [
     { name = "mcp" },
     { name = "psutil" },
     { name = "pyserial" },
-    { name = "pyudev", marker = "sys_platform == 'Linux'" },
-    { name = "pywin32", marker = "sys_platform == 'Windows'" },
-    { name = "wmi" },
+    { name = "pyudev", marker = "sys_platform == 'linux'" },
+    { name = "pywin32", marker = "sys_platform == 'win32'" },
+    { name = "wmi", marker = "sys_platform == 'win32'" },
 ]
 
 [package.dev-dependencies]
@@ -137,10 +133,9 @@ requires-dist = [
     { name = "mcp", specifier = ">=1.12.2" },
     { name = "psutil", specifier = ">=5.8.0" },
     { name = "pyserial", specifier = ">=3.4" },
-    { name = "pyudev", marker = "sys_platform == 'Linux'" },
-    { name = "pywin32", marker = "sys_platform == 'Windows'" },
-    { name = "wmi", specifier = ">=1.5.1" },
-    { name = "wmi", marker = "sys_platform == 'Windows'" },
+    { name = "pyudev", marker = "sys_platform == 'linux'" },
+    { name = "pywin32", marker = "sys_platform == 'win32'" },
+    { name = "wmi", marker = "sys_platform == 'win32'", specifier = ">=1.5.1" },
 ]
 
 [package.metadata.requires-dev]
