@@ -22,6 +22,7 @@ async def timeout_shutdown():
     """Wait 15 seconds then exit the program."""
     await asyncio.sleep(15)
     print("Timeout reached, shutting down server...")
+    print("Press ENTER to exit.")
     exit(0)
 
 async def main():
