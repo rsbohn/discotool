@@ -23,7 +23,7 @@ dev = [
 ]
 
 [tool.uv]
-project-environment = ".wsl"
+project-environment-path = ".wsl"
 
 [tool.setuptools.packages.find]
 include = ["discotool*"]
