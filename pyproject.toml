@@ -23,8 +23,7 @@ dev = [
     "pytest-asyncio>=1.1.0",
 ]
 
-[tool.uv]
-project-environment-path = ".wsl"
+
 
 [tool.setuptools.packages.find]
 include = ["discotool*"]

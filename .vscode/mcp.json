@@ -1,0 +1,8 @@
+{
+    "servers": {
+        "discotool": {
+            "command": "python3",
+            "args": ["-m", "discotool.mcp.server"]
+        }
+    }
+}
