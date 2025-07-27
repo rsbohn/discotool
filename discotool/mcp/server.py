@@ -7,6 +7,9 @@
 
 import argparse
 import asyncio
+import logging
+import os
+import sys
 import mcp.server.stdio
 from mcp.server import Server
 from discotool.mcp.tools import register_tools
@@ -22,6 +25,21 @@ async def timeout_shutdown():
     exit(0)
 
 async def main():
+    # Configure logging to stderr
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(message)s',
+        stream=sys.stderr
+    )
+    logger = logging.getLogger(__name__)
+    
+    # Print startup banner
+    script_path = os.path.abspath(__file__)
+    cwd = os.getcwd()
+    logger.info(f"Starting discotool MCP server")
+    logger.info(f"Script: {script_path}")
+    logger.info(f"CWD: {cwd}")
+    
     parser = argparse.ArgumentParser(description="MCP server for discotool")
     parser.add_argument("-t", "--timeout", action="store_true", 
                        help="Enable 15 second timeout before shutdown")
