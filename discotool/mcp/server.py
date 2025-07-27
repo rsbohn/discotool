@@ -31,7 +31,7 @@ async def main():
         if args.timeout:
             # Start timeout task
             timeout_task = asyncio.create_task(timeout_shutdown())
-            server_task = asyncio.create_task(server.run(read_stream, write_stream))
+            server_task = asyncio.create_task(server.run(read_stream, write_stream, {}))
             
             # Wait for either the server to finish or timeout to occur
             done, pending = await asyncio.wait(
@@ -43,7 +43,7 @@ async def main():
             for task in pending:
                 task.cancel()
         else:
-            await server.run(read_stream, write_stream)
+            await server.run(read_stream, write_stream, {})
 
 if __name__ == "__main__":
     asyncio.run(main())
