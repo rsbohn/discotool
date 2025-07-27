@@ -24,3 +24,6 @@ dev = [
 
 [tool.uv]
 project-environment = ".wsl"
+
+[tool.setuptools.packages.find]
+include = ["discotool*"]
