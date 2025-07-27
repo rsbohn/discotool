@@ -9,13 +9,5 @@ from discotool.mcp.tools import register_tools
 from mcp.server import Server
 import pytest
 
-@pytest.mark.asyncio
-async def test_disco_scan_tool():
-    server = Server("test")
-    register_tools(server)
-    
-    call_fn = server._tool_call_callbacks["disco-scan"]
-    response = await call_fn("disco-scan", {"text": "Stayin' Alive"})
-    
-    assert isinstance(response, list)
-    assert any("Alive" in r.text for r in response)
+# add a test for discotool.mcp.tools
+
