@@ -31,16 +31,26 @@ def register_tools(server: Any) -> None:
         devices = discotool.get_identified_devices()
         return [dict(d) for d in devices]
 
+    async def quit() -> str:
+        """Shut down the MCP server gracefully."""
+        import sys
+        sys.exit(0)
+        return "Server shutting down..."
+
     # Older versions of ``mcp`` expose ``command`` as a decorator while newer
     # ones offer ``register``/``add`` functions. Attempt all known names for
     # compatibility.
     if hasattr(server, "command") and callable(getattr(server, "command")):
         server.command("scan", scan)
+        server.command("quit", quit)
     elif hasattr(server, "register") and callable(getattr(server, "register")):
         server.register("scan", scan)
+        server.register("quit", quit)
     elif hasattr(server, "add_command") and callable(getattr(server, "add_command")):
         server.add_command("scan", scan)
+        server.add_command("quit", quit)
     else:
         # Fallback: try attribute assignment which some simple servers use.
         setattr(server, "scan", scan)
+        setattr(server, "quit", quit)
 
